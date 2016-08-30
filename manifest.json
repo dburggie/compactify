@@ -1,0 +1,18 @@
+
+{
+	"manifest_version": 2,
+	"name": "Compactify",
+	"version": "1.0",
+	
+	"description": "Make links to reddit in a compact reddit tab redirect to the compact site.",
+	"icons": {
+		"48": "icons/compactify-48.png"
+	},
+	
+	"content_scripts": [
+		{
+			"matches": ["*://*.reddit.com/*.compact*"],
+			"js": ["compactify.js"]
+		}
+	]
+}
