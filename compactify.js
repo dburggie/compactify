@@ -1,44 +1,53 @@
 
 
-
 /*
-For all links in the page:
-	if they link to a non-compact reddit page
-	then modify the link to a compact one
+Injected into reddit's compact site.
+We add an Event Listener for clicks, if they are links to reddit.com,
+we make sure they go to the compact site also.
 */
-var collection = document.getElementsByTagName("a");
-var x;
-for (i = 0; i < collection.length; i++) {
-	x = collection[i];
-	if (x.hasAttribute("href")) {
-		scrutinize(x);
-	}
-}
 
-function scrutinize(x) {
-	href = x.getAttribute("href");
-	if (href.indexOf("reddit.com") > -1 && href.indexOf(".compact") < 0) {
-		x.setAttribute("href", fixURL(href));
+document.addEventListener("click", function(e) {
+	
+	//we don't care if we're not clicking a link
+	if (!e.target.hasAttribute("href")) {
+		return;
 	}
-}
+	
+	//return if we're not clicking a link to reddit.com
+	var url = e.target.getAttribute("href");
+	if (!url.includes("reddit.com")) {
+		return;
+	}
+	
+	//return if already a compact link
+	if (url.includes("i.reddit.com" || ".compact")) {
+		return;
+	}
+	
+	//correct the url
+	e.target.setAttribute("href", makeCompact(url));
+});
 
-function fixURL(url) {
+
+
+function makeCompact(url) {
+	var chunks = url.split("?context");
+	var compactURL = chunks[0];
 	
-	var chunks = url.split("?context", 1);
-	var fixed = "";
-	
-	if (chunks[0].endsWith("/")) {
-		fixed = chunks[0].concat(".compact");
+	//add .compact tag to the end of the url
+	if (!compactURL.endsWith("/")) {
+		compactURL = compactURL.concat("/.compact");
 	}
 	
 	else {
-		fixed = chunks[0].concat("/.compact");
+		compactURL = compactURL.concat(".compact");
 	}
 	
-	if (chunks.length > 1) {
-		fixed = fixed.concat("?context").concat(chunks[1]);
+	//add any context fields
+	for (i = 1; i < chunks.length; i++) {
+		compactURL = compactURL.concat("?context");
+		compactURL = compactURL.concat(chunks[i]);
 	}
 	
-	return fixed;
+	return compactURL;
 }
-
