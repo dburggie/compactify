@@ -16,5 +16,5 @@ tag to the end of the url. For permalinks to comments, however, the url often
 already has a `?context` tag, and the `.compact` must come before it. This
 addon sets itself up as an event-listener only when browsing in reddit's
 compact site. It listens for `mousedown` events, and if they happen to be on a
-non-compact reddit link element, they modify the link so it points to the
+non-compact reddit link element, it modifies the link so it points to the
 compact site.
