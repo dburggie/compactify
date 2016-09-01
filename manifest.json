@@ -2,17 +2,20 @@
 {
 	"manifest_version": 2,
 	"name": "Compactify",
-	"version": "1.0",
+	"version": "1.1",
 	
 	"description": "Make links to reddit in a compact reddit tab redirect to the compact site.",
 	"homepage_url": "https://github.com/dburggie/compactify",
 	"icons": {
-		"48": "icons/compactify-48.png"
+		"32": "icons/compactify-32.png",
+		"48": "icons/compactify-48.png",
+		"64": "icons/compactify-64.png",
+		"96": "icons/compactify-96.png"
 	},
 	
 	"content_scripts": [
 		{
-			"matches": ["*://*.reddit.com/*.compact*"],
+			"matches": ["*://*.reddit.com/*.compact*", "*://i.reddit.com*"],
 			"js": ["compactify.js"]
 		}
 	]
