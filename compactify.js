@@ -6,7 +6,7 @@ We add an Event Listener for clicks, if they are links to reddit.com,
 we make sure they go to the compact site also.
 */
 
-document.addEventListener("click", function(e) {
+document.addEventListener("mousedown", function(e) {
 	
 	//we don't care if we're not clicking a link
 	if (!e.target.hasAttribute("href")) {
