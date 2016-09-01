@@ -20,7 +20,7 @@ document.addEventListener("mousedown", function(e) {
 	}
 	
 	//return if already a compact link
-	if (url.includes("i.reddit.com") || url.includes(".compact")) {
+	if (url.includes(".compact") || url.includes("i.reddit.com")) {
 		return;
 	}
 	
@@ -31,6 +31,8 @@ document.addEventListener("mousedown", function(e) {
 
 
 function makeCompact(url) {
+	
+	//.compact tag goes before any context fields (if present)
 	var chunks = url.split("?context");
 	var compactURL = chunks[0];
 	
