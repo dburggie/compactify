@@ -2,7 +2,7 @@
 {
 	"manifest_version": 2,
 	"name": "Compactify",
-	"version": "1.1",
+	"version": "1.2",
 	
 	"description": "Make links to reddit in a compact reddit tab redirect to the compact site.",
 	"homepage_url": "https://github.com/dburggie/compactify",
@@ -15,7 +15,7 @@
 	
 	"content_scripts": [
 		{
-			"matches": ["*://*.reddit.com/*.compact*", "*://i.reddit.com*"],
+			"matches": ["*://*.reddit.com/*.compact*"],
 			"js": ["compactify.js"]
 		}
 	]

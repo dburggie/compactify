@@ -20,7 +20,7 @@ document.addEventListener("mousedown", function(e) {
 	}
 	
 	//return if already a compact link
-	if (url.includes(".compact") || url.includes("i.reddit.com")) {
+	if (url.includes(".compact")) {
 		return;
 	}
 	
