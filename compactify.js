@@ -20,7 +20,7 @@ document.addEventListener("click", function(e) {
 	}
 	
 	//return if already a compact link
-	if (url.includes("i.reddit.com" || ".compact")) {
+	if (url.includes("i.reddit.com") || url.includes(".compact")) {
 		return;
 	}
 	
