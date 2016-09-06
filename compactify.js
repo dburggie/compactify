@@ -1,12 +1,11 @@
 
-
 /*
 Injected into reddit's compact site.
-We add an Event Listener for clicks, if they are links to reddit.com,
-we make sure they go to the compact site also.
+We add an Event Listener for mouse events on the page. If the events are in
+relation to a reddit url, we make sure that url points to the compact site.
 */
 
-document.addEventListener("mousedown", function(e) {
+function eventHandler(e) {
 	
 	//we don't care if we're not clicking a link
 	if (!e.target.hasAttribute("href")) {
@@ -26,7 +25,7 @@ document.addEventListener("mousedown", function(e) {
 	
 	//correct the url
 	e.target.setAttribute("href", makeCompact(url));
-});
+}
 
 
 
@@ -53,3 +52,8 @@ function makeCompact(url) {
 	
 	return compactURL;
 }
+
+
+
+document.addEventListener("mousedown", eventHandler);
+document.addEventListener("contextmenu", eventHandler);
