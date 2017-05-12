@@ -32,7 +32,7 @@ function eventHandler(e) {
 function makeCompact(url) {
 	
 	//.compact tag goes before any context fields (if present)
-	var chunks = url.split("?context");
+	var chunks = url.split("?");
 	var compactURL = chunks[0];
 	
 	//add .compact tag to the end of the url
@@ -45,9 +45,8 @@ function makeCompact(url) {
 	}
 	
 	//add any context fields
-	for (i = 1; i < chunks.length; i++) {
-		compactURL = compactURL.concat("?context");
-		compactURL = compactURL.concat(chunks[i]);
+	if (url.includes("context=")) {
+		compactURL = compactURL.concat("?context=3");
 	}
 	
 	return compactURL;

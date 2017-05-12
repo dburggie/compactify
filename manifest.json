@@ -2,7 +2,7 @@
 {
 	"manifest_version": 2,
 	"name": "Compactify",
-	"version": "1.3",
+	"version": "1.4",
 	
 	"description": "Make links to reddit in a compact reddit tab redirect to the compact site.",
 	"homepage_url": "https://github.com/dburggie/compactify",
